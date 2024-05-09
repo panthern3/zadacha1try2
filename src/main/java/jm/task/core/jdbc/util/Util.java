@@ -1,5 +1,6 @@
 package jm.task.core.jdbc.util;
 
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -26,15 +27,4 @@ public class Util {
         return connection;
     }
 
-    public void closeConnection() {
-        if (connection != null) {
-            try {
-                connection.close();
-                System.out.println("Connection closed.");
-            } catch (SQLException e) {
-                System.err.println("Error while closing connection!");
-                e.printStackTrace();
-            }
-        }
-    }
 }
