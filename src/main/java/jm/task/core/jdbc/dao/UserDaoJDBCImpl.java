@@ -21,7 +21,7 @@ public class UserDaoJDBCImpl implements UserDao {
             statement.executeUpdate("CREATE TABLE IF NOT EXISTS users (" +
                     "id BIGINT NOT NULL AUTO_INCREMENT," +
                     "name VARCHAR(45) NOT NULL," +
-                    "lastName VARCHAR(45) NOT NULL," +
+                    "lastName VARCHAR(45) NOT  NULL," +
                     "age TINYINT NOT NULL," +
                     "PRIMARY KEY (id))");
         } catch (SQLException e) {
@@ -46,11 +46,14 @@ public class UserDaoJDBCImpl implements UserDao {
             preparedStatement.setString(2, lastName);
             preparedStatement.setByte(3, age);
             int rowsAffected = preparedStatement.executeUpdate();
-            System.out.println("Rows affected: " + rowsAffected); // Добавлен этот вывод для проверки
+            if (rowsAffected > 0) {
+                System.out.println("(User с именем " + name + " добавлен в базу данных)");
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
+
 
 
     @Override
