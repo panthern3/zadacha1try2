@@ -65,12 +65,13 @@ public class User {
 
     @Override
     public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", age=" + age +
-                '}';
+        StringBuilder sb = new StringBuilder();
+        sb.append("User{");
+        sb.append("id=").append(id);
+        sb.append(", name='").append(name != null ? name : "null").append('\'');
+        sb.append(", lastName='").append(lastName != null ? lastName : "null").append('\'');
+        sb.append(", age=").append(age != null ? age : "null");
+        sb.append('}');
+        return sb.toString();
     }
-
 }
